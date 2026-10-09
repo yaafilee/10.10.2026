@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Наша годовщина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<canvas id="fireworks"></canvas>
+
+<img src="никита фнаф.jpg" id="fnafPhoto">
+
+<div class="text">
+
+    <div id="timer">23:59:55</div>
+
+    <div id="question">
+
+        <p>Are you sure you wanna to press the button?</p>
+
+        <div id="buttons">
+            <button id="yesButton">YES</button>
+            <button id="noButton">NO</button>
+        </div>
+
+    </div>
+
+    <div id="message">
+        <p class="anniversar">Today is our anniversary!</p>
+        <p>(листай вниз котик)</p>
+    </div>
+
+</div>
+
+<!-- ЛЕПЕСТКИ -->
+<div class="petal petal1"></div>
+<div class="petal petal2"></div>
+<div class="petal petal3"></div>
+<div class="petal petal4"></div>
+<div class="petal petal5"></div>
+<div class="petal petal6"></div>
+<div class="petal petal7"></div>
+<div class="petal petal8"></div>
+<div class="petal petal9"></div>
+<div class="petal petal10"></div>
+<div class="petal petal11"></div>
+<div class="petal petal12"></div>
+
+<audio id="fnafSound">
+    <source src="fnaf-6-am.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ИСТОРИЯ -->
+<div class="history">
+
+    <h2>Наша история</h2>
+
+    <p>
+        Наша история началась, конечно, не с сакур и их
+        романтично падающих лепестков, а с солнечной и яркой осени...
+    </p>
+
+    <p>
+        Всё началось со школы. Ты первый ко мне подошел когда мы спускались из-за тревоги в укрытие.
+        Возможно звучит совсем не романтично, но нашел идеальный момент ко мне подойти и осмелиться заговорить.
+        Честно говоря я не надеялась на то что я буду находить новые знакомства, а тем более что-то могло привести
+        к отношениям... Но мне понравилось, что ты заинтересовался мной и моим хобби.
+        Всё-таки как мне, творческому человеку, было приятно, что моими интересами заинтересовались и оценили!!
+    </p>
+
+    <p>
+        И тогда и ты и я не знали, что у нас что-то вообще будет
+        (я уже и ни на что не надеялась, через свои пройденные трудности),
+        сколько всего нам предстоит пережить, сколько моментов запомнить
+        и сколько всего пройти вместе. Все эти дни — от начала до сегодняшних дней
+        я всегда помню. И мне есть что и тебе рассказать)
+    </p>
+
+    <p>
+        Поэтому тут я покажу все наши воспоминания!!
+    </p>
+</div>
+
+<div class="winter">
+
+        <h3>Январь 31, 2025</h3>
+
+</div>
+
+<div class="firstraz">
+    
+    <p> 
+        Первый раз когда пошли гулять помнишь?)
+    </p>
+
+</div>
+
+<div class="phonescreen">
+
+    <img src="экран телефона.png" id="screenphoto">
+
+    <img src="nameee.png" id="nname">
+
+    <img src="тынехочешь.png" id="mes1">
+
+    <img src="ктоеще.png" id="mes2">
+
+    <img src="доскольки.png" id="mes3">
+
+    <img src="только.png" id="mes4">
+
+    <img src="хз.png" id="mes5">
+
+    <img src="как.png" id="mes6">
+
+    <img src="целом.png" id="mes7">
+
+    <img src="до6.png" id="mes8">
+
+    <img src="адо7.png" id="mes9">
+
+    <img src="попробую.png" id="mes10">
+
+    <img src="агдевстр.png" id="mes11">
+
+    <img src="говозле.png" id="mes12">
+
+    <img src="безпроблем.png" id="mes13">
+
+    <div id="posle">*После прогулки*</div>
+
+    <img src="спасибо.png" id="mes14">
+
+    <img src="итебе.png" id="mes15">
+
+    <audio id="tgsound">
+        <source src="tgsound.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="button">ЖМИ НА МЕНЯ</button>
+
+
+</div>
+
+<script>
+
+const button = document.getElementById("button");
+const nname = document.getElementById("nname");
+const mes1 = document.getElementById("mes1");
+const mes2 = document.getElementById("mes2");
+const mes3 = document.getElementById("mes3");
+const mes4 = document.getElementById("mes4");
+const mes5 = document.getElementById("mes5")
+const mes6 = document.getElementById("mes6")
+const mes7 = document.getElementById("mes7")
+const mes8 = document.getElementById("mes8")
+const mes9 = document.getElementById("mes9")
+const mes10 = document.getElementById("mes10")
+const mes11 = document.getElementById("mes11")
+const mes12 = document.getElementById("mes12")
+const mes13 = document.getElementById("mes13")
+const posle = document.getElementById("posle")
+const mes14 = document.getElementById("mes14")
+const mes15 = document.getElementById("mes15")
+
+const tgsound = document.getElementById("tgsound");
+
+let n = 0;
+
+button.onclick = function() {
+
+    n++;
+
+    if (n == 1) {
+        nname.style.display = "block";
+    }
+
+
+    if (n == 2) {
+        mes1.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 3) {
+        mes2.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 4) {
+        mes3.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 5) {
+        mes4.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 6) {
+        mes5.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 7) {
+        mes6.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 8) {
+        mes7.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 9) {
+        mes8.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 10) {
+        mes9.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 11) {
+        mes10.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 12) {
+        mes11.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 13) {
+        mes12.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 14) {
+        mes13.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 15) {
+        posle.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 16) {
+        mes14.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+
+    if (n == 17) {
+        mes15.style.display = "block"
+        tgsound.currentTime = 0;
+
+        tgsound.play().catch(() => {});
+    }
+};
+
+</script>
+
+<div class="moments">
+
+        <h4>Наши воспоминания</h4>
+
+</div>
+
+<div class="ateper">
+    
+    <p> 
+        А теперь давай вспомним наши счастливые моменты))
+
+    </p>
+    <p>
+    (Теперь это наша традиция??)
+    </p>
+</div>
+
+
+<script>
+
+const timer = document.getElementById("timer");
+const question = document.getElementById("question");
+const message = document.getElementById("message");
+const yes = document.getElementById("yesButton");
+const no = document.getElementById("noButton");
+const sound = document.getElementById("fnafSound");
+const fnafPhoto = document.getElementById("fnafPhoto");
+
+let seconds = 55;
+
+
+/* СЧЁТЧИК */
+
+const countdown = setInterval(() => {
+
+    if (seconds < 60) {
+
+        timer.textContent =
+            "23:59:" + String(seconds).padStart(2, "0");
+
+        seconds++;
+
+    } else {
+
+        clearInterval(countdown);
+
+        timer.textContent = "24:00:00";
+
+        /* НАЧИНАЕМ ЗАТЕМНЕНИЕ */
+
+        document.body.classList.add("dark");
+
+        /* ЗАПУСКАЕМ ФОТО */
+
+        fnafPhoto.classList.add("blink");
+
+
+        /* ПОСЛЕ ИСЧЕЗНОВЕНИЯ ФОТО */
+
+        fnafPhoto.addEventListener("animationend", () => {
+
+            document.body.classList.add("blood");
+
+            question.style.display = "block";
+
+        }, { once: true });
+
+    }
+
+}, 1000);
+
+
+/* NO */
+
+no.addEventListener("mouseenter", () => {
+
+    let x =
+        no.getBoundingClientRect().left + 220;
+
+    if (x > innerWidth - no.offsetWidth - 20)
+        x = 60;
+
+    no.style.position = "fixed";
+
+    no.style.left = x + "px";
+
+    no.style.top =
+        no.getBoundingClientRect().top + "px";
+
+});
+
+
+/* YES */
+
+yes.addEventListener("click", () => {
+
+    document.body.classList.add("normal");
+
+    document.body.classList.remove("blood");
+
+    question.style.display = "none";
+
+    message.style.display = "block";
+
+    sound.currentTime = 0;
+
+    sound.play().catch(() => {});
+
+    startFireworks();
+
+});
+
+
+/* ФЕЙЕРВЕРК */
+
+const canvas =
+    document.getElementById("fireworks");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles = [];
+
+let running = false;
+
+let startTime;
+
+
+function resize() {
+
+    canvas.width = innerWidth;
+
+    canvas.height = innerHeight;
+
+}
+
+resize();
+
+addEventListener("resize", resize);
+
+
+function createFirework() {
+
+    const x =
+        Math.random() * canvas.width;
+
+    const y =
+        Math.random() * canvas.height * .55 + 50;
+
+
+    const colors = [
+
+        "#ff5c8a",
+        "#ffd166",
+        "#ffffff",
+        "#ff9f1c",
+        "#c77dff",
+        "#70d6ff"
+
+    ];
+
+
+    const color =
+        colors[Math.floor(Math.random() * colors.length)];
+
+
+    for (let i = 0; i < 80; i++) {
+
+        const angle =
+            Math.random() * Math.PI * 2;
+
+        const speed =
+            Math.random() * 6 + 2;
+
+
+        particles.push({
+
+            x,
+            y,
+
+            vx:
+                Math.cos(angle) * speed,
+
+            vy:
+                Math.sin(angle) * speed,
+
+            life: 100,
+
+            color,
+
+            size:
+                Math.random() * 2 + 1
+
+        });
+
+    }
+
+}
+
+
+function fireworks() {
+
+    if (!running) return;
+
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    particles.forEach((p, i) => {
+
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        p.vy += .04;
+
+        p.vx *= .98;
+
+        p.vy *= .98;
+
+        p.life--;
+
+
+        ctx.globalAlpha =
+            p.life / 100;
+
+        ctx.fillStyle =
+            p.color;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+
+        if (p.life <= 0)
+            particles.splice(i, 1);
+
+    });
+
+
+    ctx.globalAlpha = 1;
+
+
+    if (Math.random() < .06)
+        createFirework();
+
+
+    if (Date.now() - startTime < 5000) {
+
+        requestAnimationFrame(fireworks);
+
+    } else {
+
+        running = false;
+
+        particles = [];
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+    }
+
+}
+
+
+function startFireworks() {
+
+    running = true;
+
+    startTime = Date.now();
+
+    createFirework();
+
+    createFirework();
+
+    createFirework();
+
+    fireworks();
+
+}
+
+</script>
+
+
+<script>
+const button = document.getElementById("button");
+const date = document.getElementById("date");
+
+button.onclick = function() {
+    date.style.display = "block";
+};
+
+</script>
+
+
+
+<!-- ФОТОГАЛЕРЕЯ В ШАХМАТНОМ ПОРЯДКЕ -->
+<section class="memory-gallery" aria-labelledby="memory-gallery-title">
+
+
+    <div class="memory-grid">
+        <figure class="memory-card">
+            <img src="сент 14 26.jpg" alt="14 сентября 2026" loading="lazy">
+            <figcaption>14 сентября 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="авг 26 26.jpg" alt="26 августа 2026" loading="lazy">
+            <figcaption>26 августа 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="авг 18 26.jpg" alt="18 августа 2026" loading="lazy">
+            <figcaption>18 августа 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="авг 10 26.jpg" alt="10 августа 2026" loading="lazy">
+            <figcaption>10 августа 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="авг 6 26.jpg" alt="6 августа 2026" loading="lazy">
+            <figcaption>6 августа 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 27 26.jpg" alt="27 июля 2026" loading="lazy">
+            <figcaption>27 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 20 26.jpg" alt="20 июля 2026" loading="lazy">
+            <figcaption>20 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 19 26.jpg" alt="19 июля 2026" loading="lazy">
+            <figcaption>19 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 11 26.jpg" alt="11 июля 2026" loading="lazy">
+            <figcaption>11 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 21 26.jpg" alt="21 июля 2026" loading="lazy">
+            <figcaption>21 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 15 26.jpg" alt="15 июля 2026" loading="lazy">
+            <figcaption>15 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 10 26.jpg" alt="10 июля 2026" loading="lazy">
+            <figcaption>10 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль 9 26.jpg" alt="9 июля 2026" loading="lazy">
+            <figcaption>9 июля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июнь 6 26.jpg" alt="6 июня 2026" loading="lazy">
+            <figcaption>6 июня 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="май 30 26.jpg" alt="30 мая 2026" loading="lazy">
+            <figcaption>30 мая 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="май 16 26.jpg" alt="16 мая 2026" loading="lazy">
+            <figcaption>16 мая 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="май 8 26.jpg" alt="8 мая 2026" loading="lazy">
+            <figcaption>8 мая 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="апр 25 26.jpg" alt="25 апреля 2026" loading="lazy">
+            <figcaption>25 апреля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="апр 15 26.jpg" alt="15 апреля 2026" loading="lazy">
+            <figcaption>15 апреля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="апр 13 26.jpg" alt="13 апреля 2026" loading="lazy">
+            <figcaption>13 апреля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="март 25 26.jpg" alt="25 марта 2026" loading="lazy">
+            <figcaption>25 марта 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="март 8 26.jpg" alt="8 марта 2026" loading="lazy">
+            <figcaption>8 марта 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="март 7 26.jpg" alt="7 марта 2026" loading="lazy">
+            <figcaption>7 марта 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="март 4 26.jpg" alt="4 марта 2026" loading="lazy">
+            <figcaption>4 марта 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="март 2 26.jpg" alt="2 марта 2026" loading="lazy">
+            <figcaption>2 марта 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="фев 26 26.jpg" alt="26 февраля 2026" loading="lazy">
+            <figcaption>26 февраля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="фев 24 26.jpg" alt="24 февраля 2026" loading="lazy">
+            <figcaption>24 февраля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="фев 23 26.jpg" alt="23 февраля 2026" loading="lazy">
+            <figcaption>23 февраля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="фев 22 26.jpg" alt="22 февраля 2026" loading="lazy">
+            <figcaption>22 февраля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="фев 19 26.jpg" alt="19 февраля 2026" loading="lazy">
+            <figcaption>19 февраля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="фев 18 26.jpg" alt="18 февраля 2026" loading="lazy">
+            <figcaption>18 февраля 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="янв 7 26.jpg" alt="7 января 2026" loading="lazy">
+            <figcaption>7 января 2026</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="дек 10 25.jpg" alt="10 декабря 2025" loading="lazy">
+            <figcaption>10 декабря 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="нояб 30 25.jpg" alt="30 ноября 2025" loading="lazy">
+            <figcaption>30 ноября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="нояб 11 25.jpg" alt="11 ноября 2025" loading="lazy">
+            <figcaption>11 ноября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="окт 30 25.jpg" alt="30 октября 2025" loading="lazy">
+            <figcaption>30 октября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="окт 29 25.jpg" alt="29 октября 2025" loading="lazy">
+            <figcaption>29 октября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="окт 28 25.jpg" alt="28 октября 2025" loading="lazy">
+            <figcaption>28 октября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="окт 7 25.jpg" alt="7 октября 2025" loading="lazy">
+            <figcaption>7 октября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="окт 3(2) 25.jpg" alt="3 октября 2025" loading="lazy">
+            <figcaption>3 октября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="окт 3 25.jpg" alt="3 октября 2025" loading="lazy">
+            <figcaption>3 октября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="сент 24 25.jpg" alt="24 сентября 2025" loading="lazy">
+            <figcaption>24 сентября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="сент 22 25.jpg" alt="22 сентября 2025" loading="lazy">
+            <figcaption>22 сентября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="сент 10 25.jpg" alt="10 сентября 2025" loading="lazy">
+            <figcaption>10 сентября 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль28 25.jpg" alt="28 июля 2025" loading="lazy">
+            <figcaption>28 июля 2025</figcaption>
+        </figure>
+
+        <figure class="memory-card">
+            <img src="июль13 25.jpg" alt="13 июля 2025" loading="lazy">
+            <figcaption>13 июля 2025</figcaption>
+        </figure>
+    </div>
+</section>
+
+</body>
+</html>

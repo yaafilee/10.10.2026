@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: url("https://i.pinimg.com/1200x/de/c8/b0/dec8b0191a7aa69bd8f983084d610a4f.jpg") center / cover fixed;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: pink;
+    overflow-x: hidden;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 4;
+    transition: opacity 3s ease;
+}
+
+body.dark::after {
+    opacity: 1;
+}
+
+body.normal::after {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#fnafPhoto {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 7;
+}
+
+#fnafPhoto.blink {
+    animation: fnafBlink 0.08s ease-in-out forwards;
+}
+
+@keyframes fnafBlink {
+    0% { opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+#timer {
+    font-size: 100px;
+    font-weight: bold;
+    color: pink;
+    text-shadow: 3px 3px 7px black;
+    position: relative;
+    transition: color 1s ease, text-shadow 1s ease;
+}
+
+body.blood #timer {
+    color: darkred;
+    text-shadow: 0 0 10px #300000, 3px 3px 7px black;
+}
+
+body.blood #timer::after {
+    content: "";
+    position: absolute;
+    left: 20%;
+    top: 85px;
+    width: 6px;
+    height: 0;
+    background: darkred;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 35px 0 0 darkred, 90px 0 0 darkred, 145px 0 0 darkred;
+    animation: bloodDrop 3s ease-in forwards;
+}
+
+@keyframes bloodDrop {
+    0% { height: 0; opacity: 0; }
+    15% { height: 20px; opacity: 1; }
+    40% { height: 70px; }
+    70% { height: 130px; }
+    100% { height: 180px; opacity: .9; }
+}
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.text {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 6;
+}
+
+#question {
+    display: none;
+    margin-top: 30px;
+    font-size: 35px;
+    text-align: center;
+    text-shadow: 3px 3px 7px black;
+}
+
+#question p {
+    color: darkred;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 25px 0;
+    display: inline-block;
+    animation: shake .2s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-7px, -4px); }
+    60% { transform: translate(7px, 7px); }
+    80% { transform: translate(5px, -5px); }
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#question button {
+    padding: 12px 30px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 20, 147, .8);
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px black;
+}
+
+#question button:hover {
+    background: darkred;
+}
+
+#message {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 3px 3px 7px black;
+}
+
+.anniversar {
+    margin: 15px 0;
+    font-size: 70px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: hotpink;
+    text-shadow: 3px 3px 7px black;
+}
+
+.petal {
+    position: fixed;
+    width: 20px;
+    height: 15px;
+    background: hotpink;
+    border-radius: 100% 0 100% 0;
+    top: -20px;
+    opacity: .9;
+    animation: fall 7s linear infinite;
+    z-index: 3;
+}
+
+.petal1 { left: 5%; }
+.petal2 { left: 15%; animation-delay: 2s; animation-duration: 9s; }
+.petal3 { left: 25%; animation-delay: 4s; animation-duration: 8s; }
+.petal4 { left: 35%; animation-delay: 1s; }
+.petal5 { left: 45%; animation-delay: 3s; animation-duration: 10s; }
+.petal6 { left: 55%; animation-delay: 5s; }
+.petal7 { left: 65%; animation-delay: 2s; animation-duration: 8s; }
+.petal8 { left: 75%; animation-delay: 4s; }
+.petal9 { left: 85%; animation-delay: 1s; animation-duration: 9s; }
+.petal10 { left: 95%; animation-delay: 3s; }
+.petal11 { left: 30%; animation-delay: 6s; animation-duration: 11s; }
+.petal12 { left: 80%; animation-delay: 5s; animation-duration: 10s; }
+
+@keyframes fall {
+    0% { top: -20px; transform: translateX(0) rotate(0deg); }
+    25% { margin-left: 40px; }
+    50% { margin-left: -30px; }
+    75% { margin-left: 50px; }
+    100% { top: 100vh; transform: translateX(-30px) rotate(360deg); }
+}
+
+.history {
+    width: 70%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 150px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.history h2 {
+    font-size: 45px;
+    margin-bottom: 50px;
+    text-shadow: 3px 3px 7px black;
+}
+
+.history p {
+    font-size: 30px;
+    margin-bottom: 50px;
+    text-shadow: 3px 3px 7px black;
+}
+
+.winter {
+    font-family: "Andale Mono", monospace;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 3px 10px black;
+}
+
+.firstraz {
+    font-family: "Courier New", monospace;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 3px 3px 10px black;
+    margin-bottom: 150px;
+}
+
+.date {
+    text-align: center;
+    font-size: 50px;
+    animation: fly 1s ease-out;
+}
+
+@keyframes fly {
+    from { transform: translateY(300px); }
+    to { transform: translateY(0); }
+}
+
+.phonescreen {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#screenphoto {
+    width: 60vw;
+    height: 90vh;
+    object-fit: contain;
+}
+
+#nname {
+    width: 21vw;
+    display: none;
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: up 0.5s;
+}
+
+#button {
+    position: absolute;
+    right: 10%;
+    background: pink;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+@keyframes up {
+    from { top: 40%; }
+    to { top: 25%; }
+}
+
+#mes1 { display: none; position: absolute; top: 15%; left: 51%; width: 250px; transform: translateX(-50%); animation: up 0.5s; }
+#mes2 { display: none; position: absolute; top: 18%; left: 47.5%; width: 250px; transform: translateX(-50%); animation: up 0.5s; }
+#mes3 { display: none; position: absolute; top: 23%; left: 48.5%; width: 250px; transform: translateX(-50%); animation: up 0.5s; }
+#mes4 { display: none; position: absolute; top: 26%; left: 54.2%; width: 180px; transform: translateX(-50%); animation: up 0.5s; }
+#mes5 { display: none; position: absolute; top: 33.5%; left: 54.4%; width: 157px; transform: translateX(-50%); animation: up 0.5s; }
+#mes6 { display: none; position: absolute; top: 40.5%; left: 54.4%; width: 160px; transform: translateX(-50%); animation: up 0.5s; }
+#mes7 { display: none; position: absolute; top: 42.5%; left: 48.5%; width: 250px; transform: translateX(-50%); animation: up 0.5s; }
+#mes8 { display: none; position: absolute; top: 46.5%; left: 54.4%; width: 165px; transform: translateX(-50%); animation: up 0.5s; }
+#mes9 { display: none; position: absolute; top: 51%; left: 46%; width: 190px; transform: translateX(-50%); animation: up 0.5s; }
+#mes10 { display: none; position: absolute; top: 57%; left: 54.5%; width: 170px; transform: translateX(-50%); animation: up 0.5s; }
+#mes11 { display: none; position: absolute; top: 63%; left: 46.2%; width: 170px; transform: translateX(-50%); animation: up 0.5s; }
+#mes12 { display: none; position: absolute; top: 66%; left: 55%; width: 170px; transform: translateX(-50%); animation: up 0.5s; }
+#mes13 { display: none; position: absolute; top: 67%; left: 44%; width: 130px; transform: translateX(-50%); animation: up 0.5s; }
+
+#posle {
+    font-family: "FreeMono", monospace;
+    display: none;
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: deeppink;
+    opacity: 45%;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 9px;
+    animation: up 0.5s;
+}
+
+#mes14 { display: none; position: absolute; top: 78.5%; left: 48.5%; width: 235px; transform: translateX(-50%); animation: up 0.5s; }
+#mes15 { display: none; position: absolute; top: 85%; left: 55%; width: 125px; transform: translateX(-50%); animation: up 0.5s; }
+
+.moments {
+    font-family: "Andale Mono", monospace;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 3px 10px black;
+}
+
+.ateper {
+    font-family: "Courier New", monospace;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 3px 3px 10px black;
+    margin-bottom: 150px;
+}
+
+/* ===== ГАЛЕРЕЯ ФОТОГРАФИЙ ===== */
+
+.memory-gallery {
+    width: min(100%, 900px);
+    margin: 70px auto 60px;
+    padding: 24px 18px 55px;
+    position: relative;
+    z-index: 2;
+}
+
+.memory-gallery h2 {
+    margin: 0 0 12px;
+    text-align: center;
+    color: #ffb6d9;
+    font-size: clamp(28px, 4vw, 44px);
+    text-shadow: 0 0 12px #ff69b4, 2px 2px 5px black;
+}
+
+.memory-gallery .memory-gallery-intro {
+    margin: 0 0 34px;
+    text-align: center;
+    color: pink;
+    font-size: clamp(14px, 1.8vw, 20px);
+    text-shadow: 2px 2px 5px black;
+}
+
+.memory-gallery .memory-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Карточка подстраивается под размер фотографии */
+.memory-gallery .memory-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    width: fit-content;
+    max-width: 240px;
+    min-width: 0;
+    margin-top: 0;
+    padding: 11px 11px 7px;
+    background-color: #F5B9CB;
+    background-image:
+        radial-gradient(ellipse at 12% 16%, rgba(255,255,255,.65) 0 2px, transparent 3px),
+        radial-gradient(ellipse at 86% 78%, rgba(206,117,145,.22) 0 2px, transparent 4px),
+        linear-gradient(135deg, #fbe1e8, #F5B9CB 48%, #f9d6e0);
+    border: 1px solid #efafc2;
+    border-radius: 5px;
+    box-shadow: 0 3px 12px rgba(70,20,40,.22);
+    overflow: hidden;
+}
+
+/* Вертикальные карточки слева */
+.memory-gallery .memory-card:nth-child(odd) {
+    align-self: flex-start;
+    margin-left: 5%;
+}
+
+/* Карточки справа и немного ниже */
+.memory-gallery .memory-card:nth-child(even) {
+    align-self: flex-end;
+    margin-right: 5%;
+    margin-top: 24px;
+}
+
+/* Изображение сохраняет пропорции */
+.memory-gallery .memory-card img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 216px;
+    max-height: 230px;
+    object-fit: contain;
+    object-position: center;
+    background: white;
+    border: 0;
+    border-radius: 2px;
+}
+
+/* Дата под фото */
+.memory-gallery .memory-card figcaption {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 8px 2px 2px;
+    color: #744656;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* Телефоны */
+@media (max-width: 600px) {
+    #timer { font-size: 55px; }
+    #question { font-size: 20px; }
+    #question button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+    .anniversar { font-size: 38px; }
+    .history {
+        width: 80%;
+        padding: 50px 10px 100px;
+    }
+    .history p { font-size: 22px; }
+    #fnafPhoto {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .memory-gallery .memory-card {
+        max-width: 48%;
+        padding: 8px 8px 6px;
+    }
+
+    .memory-gallery .memory-card img {
+        max-width: 100%;
+        max-height: 180px;
+    }
+
+    .memory-gallery .memory-card:nth-child(odd) {
+        margin-left: 1%;
+    }
+
+    .memory-gallery .memory-card:nth-child(even) {
+        margin-right: 1%;
+        margin-top: 18px;
+    }
+}
